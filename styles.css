@@ -1,0 +1,154 @@
+:root {
+  --fondo: #0f172a;
+  --superficie: #1e293b;
+  --borde: #334155;
+  --texto: #f1f5f9;
+  --texto-suave: #94a3b8;
+  --primario: #38bdf8;
+  --primario-texto: #0f172a;
+  --peligro: #f87171;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+body {
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--fondo);
+  color: var(--texto);
+  min-height: 100vh;
+  padding: env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);
+}
+
+.encabezado {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 16px;
+  border-bottom: 1px solid var(--borde);
+}
+
+.encabezado h1 {
+  font-size: 1.25rem;
+}
+
+.contenido {
+  max-width: 560px;
+  margin: 0 auto;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.visor {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  background: #000;
+  border-radius: 16px;
+  overflow: hidden;
+  border: 1px solid var(--borde);
+}
+
+#visor-camara {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Efecto espejo para la cámara frontal */
+#visor-camara.espejo {
+  transform: scaleX(-1);
+}
+
+.placeholder {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--texto-suave);
+}
+
+.estado {
+  text-align: center;
+  color: var(--texto-suave);
+  font-size: 0.95rem;
+}
+
+.btn {
+  font: inherit;
+  font-weight: 600;
+  border: none;
+  border-radius: 12px;
+  padding: 14px 18px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn-primario {
+  background: var(--primario);
+  color: var(--primario-texto);
+}
+
+.btn-secundario {
+  background: var(--superficie);
+  color: var(--texto);
+  border: 1px solid var(--borde);
+}
+
+.btn-peligro {
+  background: var(--peligro);
+  color: var(--primario-texto);
+}
+
+.encabezado .btn {
+  width: auto;
+  padding: 8px 14px;
+}
+
+.aviso {
+  background: var(--superficie);
+  border: 1px solid var(--primario);
+  border-radius: 16px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.aviso h2 {
+  font-size: 1.1rem;
+}
+
+.aviso ul {
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.aviso .nota {
+  font-size: 0.85rem;
+  color: var(--texto-suave);
+}
+
+.acciones,
+.controles {
+  display: flex;
+  gap: 12px;
+}
